@@ -38,7 +38,7 @@
 }
 
 #navbar ul li a:hover{
-  background-color: rgb(77, 77, 77);
+  background-color: rgb(77, 177, 127);
   cursor: pointer ;
 }
 
@@ -55,7 +55,7 @@
 }
 
 #cartwidget:hover{
-  background-color: rgb(77, 77, 77);
+  background-color: rgb(77, 177, 127);
   cursor: pointer ;
 }
 
