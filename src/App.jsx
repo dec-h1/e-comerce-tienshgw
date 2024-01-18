@@ -1,26 +1,22 @@
-import { useState } from 'react'
-import './App.css'
-import Header from "./components/Header/Header";
-import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import NavBar from "./components/NavBar/NavBar";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import "./App.css";
 
 function App() {
-  // eslint-disable-next-line no-unused-vars
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <Header
-        title="VENTA DE FRUTAS ORGÁNICAS 100% NATURALES Y SALUDABLES"
-        subtitle="Frutas orgánicas: sabores auténticos, beneficios naturales para tu bienestar"
-      />
+    <BrowserRouter>
       <NavBar />
-      <div>
-        <ItemListContainer greeting=" ¡Deseándoles a todos un excelente fin de semana!" />
-      </div>
-   
-    </div>
+      <Routes>
+        <Route path="/" element={<ItemListContainer saludo="Bienvenidos a Tiens: ¡Deseándoles a todos un excelente fin de semana!" />} />
+        <Route path="/categoria/:categoria" element={<ItemListContainer saludo="Bienvenidos a Tiens" />} />
+        <Route path="/detalle/:idProducto" element={<ItemDetailContainer />} />
+        <Route path="*" element={ <div>Pagina no encontrada</div> } />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
-export default App
+export default App;

@@ -1,38 +1,27 @@
-/* eslint-disable no-unused-vars */
-import React from "react";
-import CardWidget from "../CardWidget/CardWidget";
+import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
+
+import "./NavBar.css";
 
 const NavBar = () => {
   return (
-    <nav
-      style={{
-        backgroundColor: 'yellow',
-        height: "10vh",
-      }}
-    >
-      <ul
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-evenly",
-          width: "100%",
-
-        }}
-      >
-        <li style={{ color: "white", listStyle: "none" }}>
-          <a href="https://www.google.com" style={{textDecoration:'none'}}>Inicio</a>
-        </li>
-        <li style={{ color: "white", listStyle: "none" }}>
-          <a href="https://www.google.com"style={{textDecoration:'none'}}>About</a>
-        </li>
-        <li style={{ color: "white", listStyle: "none" }}>
-          <a href="https://www.google.com"style={{textDecoration:'none'}}>Contact</a>
+    <div id="navbar">
+      <Link to="/" className="brand">
+        <img src="/img/tiens-Dora-peru.png" alt="logo tiens" />
+      </Link>
+      <ul>
+        <li>
+          <Link to="/categoria/suplementos">Suplementos alimenticios</Link>
         </li>
         <li>
-          <CardWidget />
+          <Link to="/categoria/cuidadoPersonal">Cuidado personal</Link>
+        </li>
+        <li>
+          <Link to="/categoria/belleza">Belleza</Link>
         </li>
       </ul>
-    </nav>
+      <CartWidget />
+    </div>
   );
 };
 
