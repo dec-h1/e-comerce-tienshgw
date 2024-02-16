@@ -1,29 +1,38 @@
 import { useEffect, useState } from "react";
 
-import obtenerProductos from "../../utilidades/data";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import { collection, getDocs, query, where } from "firebase/firestore"
+import db from "../../db/db";
 
 import "./ItemListContainer.css"
 
 const ItemListContainer = ({ saludo }) => {
   const [productos, setProductos] = useState([]);
-  const { categoria } = useParams()
+  const { categoria } = useParams();
 
   useEffect(() => {
-    obtenerProductos
+    let consulta
+    let productosRef = collection(db, "productos")
+
+    if(categoria){
+      //filtrar data
+      consulta = query( productosRef, where("categoria" , "==", categoria ) )
+    }else{
+      //devolvemos todo
+      consulta = productosRef
+    }
+
+    getDocs(consulta)
       .then((respuesta)=> {
-        if(categoria){
-          //filtrar la data
-          const productosFiltrados = respuesta.filter((producto)=> producto.categoria === categoria )
-          setProductos(productosFiltrados)
-        }else{
-          //guardamos todos los productos
-          setProductos(respuesta)
-        }
+        let productosDb = respuesta.docs.map((producto)=>{
+          return { id: producto.id , ...producto.data() }
+        })
+
+        setProductos(productosDb)
       })
       .catch((error)=> console.log(error))
-      .finally(()=> console.log("Finalizo la promesa"))
+
   }, [categoria]);
 
   return (
