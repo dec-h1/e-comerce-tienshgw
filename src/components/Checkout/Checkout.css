@@ -1,50 +1,48 @@
-.checkout{
-    width: 100%;
-    min-height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .formulario{
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-  }
-  
-  .formulario label{
-  }
-  
-  .formulario input{
-    font-size: 20px;
-    padding: 10px 5px;
-    margin: 10px 0;
-    border-radius: 5px;
-  }
-  
-  .formulario button{
-    background-color: white;
-    font-size: 20px;
-    padding: 10px 0;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-  
-  .formulario button:hover{
-    background-color: rgb(222, 222, 222);
-  }
-  
-  .boton-orden{
-    width: 200px;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    border: 1px solid rgb(46, 46, 46);
-    border-radius: 5px;
-    color: rgb(46, 46, 46);
-    text-decoration: none;
-    padding: 10px 0;
-  }
+div.containerForm {
+  width: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-radius: 15px;
+  border-color: rgb(10, 73, 8);
+  background-color: rgb(109, 207, 153);
+  margin: auto;
+}
+
+form.checkout-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+button.FormBoton {
+  color: white;
+  background-color: #1c8849;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px lightgray;
+}
+
+
+/* Estilo para input con sólo la línea inferior */
+input.linea-inferior {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 0;
+}
+
+/* Estilo para input enfocado */
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+label{
+  font-weight: bold;
+}

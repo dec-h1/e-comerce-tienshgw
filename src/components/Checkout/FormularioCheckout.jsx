@@ -1,48 +1,27 @@
-const FormularioCheckout = ({ datosForm, guardarDatosInput, enviarOrden }) => {
+import './Checkout.css'
+
+export const FormularioCheckout = ({ datosForm, guardarDatosInput, enviarOrden }) => {
     return (
       <div>
         <h2>Porfavor complete con sus datos para seguir con la compra</h2>
-        <form className="formulario" onSubmit={enviarOrden}>
-          <label htmlFor="nombre">Nombre</label>
-          <input
-            type="text"
-            id="nombre"
-            name="nombre"
-            value={datosForm.nombre}
-            onChange={guardarDatosInput}
-          />
-  
-          <label htmlFor="telefono">Telefono</label>
-          <input
-            type="number"
-            id="telefono"
-            name="telefono"
-            value={datosForm.telefono}
-            onChange={guardarDatosInput}
-          />
-  
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={datosForm.email}
-            onChange={guardarDatosInput}
-          />
-  
-          <label htmlFor="repetir-email">Repetir Email</label>
-          <input
-            type="email"
-            id="repetir-email"
-            name="repetirEmail"
-            value={datosForm.repetirEmail}
-            onChange={guardarDatosInput}
-          />
-  
-          <button type="submit">Enviar orden</button>
+        <form onSubmit={enviarOrden} className='checkout-form'>
+            <label htmlFor='nombre'>Nombre</label>
+            <input className='linea-inferior' type="text" id='nombre' name='nombre' value={datosForm.nombre} onChange={guardarDatosInput} />
+            <br />
+            <label htmlFor="telefono">Telefono:</label>
+            <input className='linea-inferior' type="number" id='telefono' name='telefono' value={datosForm.telefono} onChange={guardarDatosInput} />
+            <br />
+            <label htmlFor="email">Email:</label>
+            <input className='linea-inferior' type="email" id='email' name='email' value={datosForm.email} onChange={guardarDatosInput} /> {/*el 1er email es por el type, el id es por el htmlFor y 
+                el name es por como declaramos el campo en el objeto en la variable de estado */}
+            <br />
+            <label htmlFor="repetir-email">Confirme su email:</label>
+            <input className='linea-inferior' type="email" id='repetir-email' name='repetirEmail' value={datosForm.repetirEmail} onChange={guardarDatosInput} />
+            <br />
+            <button className='FormBoton' type='submit'>Confirmar pedido</button>
         </form>
       </div>
     );
   };
-  export default FormularioCheckout;
+  
   
